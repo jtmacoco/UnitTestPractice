@@ -1,0 +1,70 @@
+        -:    0:Source:Practice.cpp
+        -:    0:Graph:Practice.gcno
+        -:    0:Data:Practice.gcda
+        -:    0:Runs:2
+        -:    0:Programs:2
+        -:    1:#include "Practice.h"
+        -:    2:#include <string>
+        -:    3:
+        -:    4:using std::string;
+        -:    5:
+        -:    6:// Receive three integers and rearrange their values so that they are in
+        -:    7:// descending order from greatest (first) to least (third)
+        8:    8:void Practice::sortDescending(int & first, int & second, int & third)
+        -:    9:{
+        8:   10:  if( first < second )
+        -:   11:  {
+        6:   12:    int temp = first;
+        6:   13:    first = second;
+        6:   14:    second = temp;
+        -:   15:  }
+        8:   16:  if( first < third )
+        -:   17:  {
+        2:   18:    int temp = first;
+        2:   19:    first = third;
+        2:   20:    third = temp;
+        -:   21:  }
+        8:   22:  if( second < third )
+        -:   23:  {
+        6:   24:    int temp = second;
+        6:   25:    second = third;
+        6:   26:    third = temp;
+        -:   27:  }
+        8:   28:}
+        -:   29:
+        -:   30:// Receive a string and return whether or not it is strictly a palindrome,
+        -:   31:// where it is spelled the same backwards and forwards when considering every
+        -:   32:// character in the string, but disregarding case ('x' is the same as 'X')
+        8:   33:bool Practice::isPalindrome(string input)
+        -:   34:{
+       38:   35:  for(unsigned int i=0; i < input.size(); i++)
+        -:   36:  {
+       30:   37:    if( input[i] < 'A' || input[i] > 'Z' )
+        -:   38:    {
+        -:   39:      //change lower case to upper case
+       30:   40:      input[i] = input[i] - ('a' - 'A');
+        -:   41:    }
+        -:   42:  }
+       18:   43:  for(unsigned int i=0; i < input.size()/2; i++)
+        -:   44:  {
+       12:   45:    if( input[i] != input[input.size()-1-i] )
+        2:   46:      return false;
+        -:   47:  }
+        6:   48:  return true;
+        -:   49:}
+        -:   50:
+        -:   51:// This function receives a string and counts how many times the same character
+        -:   52:// is repeated at the beginning of the string, before any other characters. The
+        -:   53:// function is case sensative so 'Z' is different than 'z'.
+        8:   54:int Practice::count_starting_repeats(string word)
+        -:   55:{
+        8:   56:    int repetition = 1;
+        8:   57:    int index = 0;
+        -:   58:    
+       20:   59:    while( index < word.length()-1 && word[index] == word[index+1] ){
+        6:   60:      repetition++;
+        6:   61:      index++;
+        -:   62:    }
+        -:   63:
+        8:   64:    return repetition;
+        -:   65:}

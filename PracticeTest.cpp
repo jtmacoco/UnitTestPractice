@@ -22,7 +22,7 @@ TEST(PracticeTest,zzz_repeats){
 	Practice testObject1;
 	ASSERT_EQ(testObject1.count_starting_repeats("zzz"),3);
 }
-TEST(PracticeTest,zzz_empty){
+TEST(PracticeTest,empty){
 	Practice testObject1;
 	ASSERT_EQ(testObject1.count_starting_repeats(""),0);
 }
@@ -32,7 +32,7 @@ TEST(PracticeTest,jjt_repeats){
 }
 TEST(PracticeTest,abc_repeats){
 	Practice testObject1;
-	ASSERT_EQ(testObject1.count_starting_repeats("abc"),1);
+	ASSERT_EQ(testObject1.count_starting_repeats("abc"),0);
 }
 TEST(PracticeTest,pal){
 	Practice testObject2;
